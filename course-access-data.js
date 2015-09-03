@@ -12,7 +12,7 @@ var generate = function generate(orgUnit) {
     };
 
     for(var i = 0; i < numResults; i++){
-        results[orgUnit]["Course Offering"][date.getTime() - consts.MS_PER_DAY * i] = Math.round(Math.random() * 1000);
+        results[orgUnit]["Course Offering"][date - consts.MS_PER_DAY * i] = Math.round(Math.random() * 1000);
     }
     
     return results;

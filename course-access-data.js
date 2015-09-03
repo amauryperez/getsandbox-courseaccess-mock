@@ -9,7 +9,7 @@ var generate = function generate(orgUnit, start, end) {
         endDate = new Date(end).setUTCHours(0,0,0,0),
         dateDiff = endDate - startDate;
         
-    return dateDiff;
+    return endDate;
 
     results[orgUnit] = {
         "Course Offering": {}

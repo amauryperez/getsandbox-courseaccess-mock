@@ -8,8 +8,6 @@ var generate = function generate(orgUnit, start, end) {
         startDate = new Date(start).setUTCHours(0,0,0,0),
         endDate = new Date(end).setUTCHours(0,0,0,0),
         dateDiff = endDate - startDate;
-        
-    return endDate;
 
     results[orgUnit] = {
         "Course Offering": {}

@@ -10,7 +10,7 @@ Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offer
         endTime = req.query.endTime === undefined ? new Date().getTime() : req.query.endTime;
     
     
-    var result = generateCourseAccessData(req.params.orgId, startTime, endDate);
+    var result = generateCourseAccessData(req.params.orgId, startTime, endTime);
     
     res.type('application/json');
     res.status(200);

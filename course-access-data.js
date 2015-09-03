@@ -5,7 +5,7 @@ var consts = {
 var generate = function generate(orgUnit) {
     var results = {},
         numResults = 365,
-        date = new Date();
+        date = new Date().setHours(0,0,0,0);
 
     results[orgUnit] = {
         "Course Offering": {}

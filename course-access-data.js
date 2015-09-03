@@ -7,6 +7,10 @@ var generate = function generate(orgUnit) {
         numResults = 365,
         date = new Date();
 
+    results[orgUnit] = {
+        "Course Offering": {}
+    };
+
     for(var i = 0; i < numResults; i++){
         results[orgUnit]["Course Offering"][date.getTime() - consts.MS_PER_DAY * i] = Math.round(Math.random() * 1000);
     }

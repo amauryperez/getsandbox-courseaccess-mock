@@ -1,7 +1,7 @@
 var consts = {};
 
 var generate = function generate(granularity) {
-    return [{}];
+    
 };
 
 module.exports = {

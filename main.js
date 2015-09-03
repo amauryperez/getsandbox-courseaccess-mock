@@ -6,9 +6,11 @@ var generateCourseAccessData = require('course-access-data.js').generate,
  */
 
 Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offering','GET', function(req, res) {
-    var endTime = req.query.endTime === undefined ? new Date().getTime() : req.query.endTime;
+    var startTime = req.query.startTime === undefined ? 0 : req.query.startTime,
+        endTime = req.query.endTime === undefined ? new Date().getTime() : req.query.endTime;
     
-    var result = generateCourseAccessData(req.params.orgId, req.query.startTime, endDate);
+    
+    var result = generateCourseAccessData(req.params.orgId, startTime, endDate);
     
     res.type('application/json');
     res.status(200);

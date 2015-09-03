@@ -6,7 +6,9 @@ var generateCourseAccessData = require('course-access-data.js').generate,
  */
 
 Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offering','GET', function(req, res) {
-    var result = generateCourseAccessData(req.params.orgId);
+    var endTime = req.query.endTime === undefined ? new Date().getTime() : req.query.endTime;
+    
+    var result = generateCourseAccessData(req.params.orgId, req.query.startTime, endDate);
     
     res.type('application/json');
     res.status(200);

@@ -19,8 +19,6 @@ var generate = function generate(orgUnit, start, end) {
         results[orgUnit]["Course Offering"][endDate - consts.MS_PER_DAY * i] = (Math.round(Math.random() * 1000)).toString();
     }
     
-    
-    
     return results;
 };
 

@@ -12,10 +12,14 @@ var generate = function generate(orgUnit, start, end) {
     results[orgUnit] = {
         "Course Offering": {}
     };
+    
+    numVals = Math.floor(dateDiff / consts.MS_PER_DAY);
 
-    for(var i = 0; i < consts.MAX_RESULTS && i * consts.MS_PER_DAY <= dateDiff; i++){
+    for(var i = numVals; i > 0; i--){
         results[orgUnit]["Course Offering"][endDate - consts.MS_PER_DAY * i] = (Math.round(Math.random() * 1000)).toString();
     }
+    
+    
     
     return results;
 };

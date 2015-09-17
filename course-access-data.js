@@ -28,8 +28,6 @@ var generate = function generate(orgUnit, roleId, start, end) {
     for(var j = 0; j < roleIds.length; j++){
         results[orgUnit]["Course Offering"][roleIds[j]] = {};
         
-        return 'blah';
-        
         for(var k = numVals; k >= 0; k--){
             results[orgUnit]["Course Offering"][roleIds[j]][endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
         }

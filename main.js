@@ -15,7 +15,9 @@ Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offer
             parseInt(req.query.endTime);
     
     
-    var result = generateCourseAccessData(req.params.orgId, startTime, endTime);
+    //var result = generateCourseAccessData(req.params.orgId, startTime, endTime);
+    
+    var result = [startTime, endTime];
     
     res.type('application/json');
     res.status(200);

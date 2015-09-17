@@ -32,6 +32,8 @@ var generate = function generate(orgUnit, roleId, start, end) {
             subset[endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
         }
         
+        return subset;
+        
         results[orgUnit]["Course Offering"][roleIds[j]] = subset;
     }
     

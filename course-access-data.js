@@ -26,10 +26,10 @@ var generate = function generate(orgUnit, roleId, start, end) {
     numVals = Math.floor(dateDiff / consts.MS_PER_DAY);
 
     for(var j = 0; j < roleIds.length; j++){
-        results[orgUnit]["Course Offering"][roleIds[j]] = {};
+        results[orgUnit]["Course Offering"][roleIds[j].toString()] = {};
         
         for(var k = numVals; k >= 0; k--){
-            results[orgUnit]["Course Offering"][roleIds[j].toString][endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
+            results[orgUnit]["Course Offering"][roleIds[j].toString()][endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
         }
     }
     

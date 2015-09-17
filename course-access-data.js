@@ -15,7 +15,7 @@ var generate = function generate(orgUnit, roleId, start, end) {
     }
     else {
         for(var i = 0; i < 25; i++) {
-            roleIds.push(i + 578);
+            roleIds.push((i + 578).toString());
         }
     }
 
@@ -26,15 +26,11 @@ var generate = function generate(orgUnit, roleId, start, end) {
     numVals = Math.floor(dateDiff / consts.MS_PER_DAY);
 
     for(var j = 0; j < roleIds.length; j++){
-        var subset = {};
+        results[orgUnit]["Course Offering"][roleIds[j]] = {};
         
         for(var k = numVals; k >= 0; k--){
-            subset[endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
+            results[orgUnit]["Course Offering"][roleIds[j]][endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
         }
-        
-        return subset;
-        
-        results[orgUnit]["Course Offering"][roleIds[j]] = subset;
     }
     
     return results;

@@ -26,11 +26,13 @@ var generate = function generate(orgUnit, roleId, start, end) {
     numVals = Math.floor(dateDiff / consts.MS_PER_DAY);
 
     for(var j = 0; j < roleIds.length; j++){
-        results[orgUnit]["Course Offering"][roleIds[j]] = {};
+        var subset = {};
         
         for(var k = numVals; k >= 0; k--){
-            results[orgUnit]["Course Offering"][roleIds[j]][endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
+            subset[endDate - consts.MS_PER_DAY * k] = (Math.round(Math.random() * 1000)).toString();
         }
+        
+        results[orgUnit]["Course Offering"][roleIds[j]] = subset;
     }
     
     return results;

@@ -14,7 +14,7 @@ var generate = function generate(orgUnit, roleId, start, end) {
         roleIds.push(roleId);
     }
     else {
-        for(var i = 0; i < 25; i++) {
+        for(var i = 0; i < 5; i++) {
             roleIds.push((i + 578).toString());
         }
     }

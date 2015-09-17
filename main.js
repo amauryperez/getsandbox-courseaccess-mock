@@ -5,7 +5,7 @@ var generateCourseAccessData = require('course-access-data.js').generate,
  *  /d2l/api/adp/unstable/aggregatedEvents
  */
 
-Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offering/roleId','GET', function(req, res) {
+Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offering/{roleId}','GET', function(req, res) {
     var startTime = req.query.startTime === undefined ? 
             Math.max(0, new Date().getTime() - toolAccessConsts.MS_PER_DAY * toolAccessConsts.MAX_RESULTS) : 
             parseInt(req.query.startTime),

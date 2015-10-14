@@ -23,7 +23,7 @@ var generate = function generate(orgUnit, roleId, start, end) {
         "Course Offering": {}
     };
     
-    numVals = Math.floor(dateDiff / consts.MS_PER_DAY);
+    numVals = Math.ceil(dateDiff / consts.MS_PER_DAY);
 
     for(var j = 0; j < roleIds.length; j++){
         results[orgUnit]["Course Offering"][roleIds[j]] = {};

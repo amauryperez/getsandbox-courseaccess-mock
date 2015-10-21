@@ -1,27 +1,47 @@
-var generateCourseAccessData = require('course-access-data.js').generate,
-    toolAccessConsts = require('course-access-data.js').consts
-    utils = require('utils.js');
-
-/**
- *  /d2l/api/adp/unstable/aggregatedEvents
+/**1
+ * My API Sandbox
+ * 
  */
 
-Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offering','GET', function(req, res) {
-    var dates = utils.parseDates(req.query.startTime, req.query.endTime);
-    
-    var result = generateCourseAccessData(req.params.orgId, undefined, dates.startTime, dates.endTime);
-
-    res.type('application/json');
-    res.status(200);
-    res.json(result);
+// A basic route returning a canned response
+Sandbox.define('/hello', 'get', function(req, res) {
+    // send 'Hello world' response
+    res.send('Hello world');
 });
 
-Sandbox.define('/d2l/api/adp/unstable/aggregatedEvents/{id}/{orgId}/Course Offering/{roleId}','GET', function(req, res) {
-    var dates = utils.parseDates(req.query.startTime, req.query.endTime);
-    
-    var result = generateCourseAccessData(req.params.orgId, req.params.roleId, dates.startTime, dates.endTime);
 
-    res.type('application/json');
-    res.status(200);
-    res.json(result);
+// Using stateful behaviour to simulate creating users
+Sandbox.define('/users', 'POST', function(req, res) {
+    // retrieve users or, if there are none, init to empty array
+    state.users = state.users || [];
+    
+    // persist user by adding to the state object
+    state.users.push(req.body);
+
+    return res.json({status: "ok"});
+});
+
+// Using stateful behaviour to simulate getting all users
+Sandbox.define('/users', 'GET', function(req, res) {
+    // retrieve users or, if there are none init, to empty array
+    state.users = state.users || [];
+
+    return res.json(state.users);
+});
+
+// Using named route parameters to simulate getting a specific user
+Sandbox.define('/users/{username}', 'GET', function(req, res) {
+    // retrieve users or, if there are none, init to empty array
+    state.users = state.users || [];
+
+    // route param {username} is available on req.params
+    var username = req.params.username;
+
+    // log it to the console
+    console.log("Getting user " + username + " details");
+
+    // use lodash to find the user in the array
+    var user = _.find(state.users, { "username": username});
+    
+    return res.json(user);
 });

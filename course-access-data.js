@@ -33,7 +33,7 @@ var generate = function generate(orgUnit, roleId, start, end) {
         }
     }
     
-    return [];//results;
+    return results;
 };
 
 module.exports = {
